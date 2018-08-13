@@ -35,3 +35,17 @@ class Snatch3r(object):
         left_motor.wait_while(ev3.Motor.STATE_RUNNING)
         right_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep().wait()
+
+    def turn_degrees(self, degrees_to_turn, turn_speed_sp):
+        left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+        right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
+
+        # Check that the motors are actually connected
+        assert left_motor.connected
+        assert right_motor.connected
+
+        left_motor.run_to_rel_pos(position_sp=degrees_to_turn, speed_sp=turn_speed_sp)
+        right_motor.run_to_rel_pos(position_sp=-1 * degrees_to_turn, speed_sp=turn_speed_sp)
+        left_motor.wait_while(ev3.Motor.STATE_RUNNING)
+        right_motor.wait_while(ev3.Motor.STATE_RUNNING)
+        ev3.Sound.beep().wait()
