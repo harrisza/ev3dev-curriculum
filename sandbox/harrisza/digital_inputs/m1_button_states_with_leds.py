@@ -50,42 +50,40 @@ def main():
                   # ev3.Leds.ORANGE,  # Too close to another color in my opinion
                   # ev3.Leds.YELLOW,  # Too close to another color in my opinion
                   ev3.Leds.AMBER]
-
-    current_color_index = 0
-
-    #  TODO: 3. Implement the left, right, and up buttons as follows:
-    #    When the up button is being pressed:
-    #      -- print the word "up"
-    #      -- turn off all LEDs
-    #    When the left button is being pressed:
-    #      -- print the word "left"
-    #      -- make the LEFT led GREEN
-    #      -- turn off the right LED
-    #    When the right button is being pressed:
-    #      -- print "right"
-    #      -- make the RIGHT led RED
-    #      -- turn off the left LED
-    #   You are required to use the Button instance variables for the up, left, and right (not event callbacks).
-    #   Notice that the word "up" (or "left" or "right" is printed continually while you hold the button)
-    #   Optional: You can also comment out the code above that does the 6 second red, green, off pattern.  It was
-    #     there just to provide you with code examples for using the LEDs.  It does not need to run anymore.
-    #     Just make sure not to comment out too much. ;)
-    btn = ev3.Button()
     assert btn
-    for k in range(1000):
+    current_color_index = 0
+    while True:
+        #  TODO: 3. Implement the left, right, and up buttons as follows:
+        #    When the up button is being pressed:
+        #      -- print the word "up"
+        #      -- turn off all LEDs
+        #    When the left button is being pressed:
+        #      -- print the word "left"
+        #      -- make the LEFT led GREEN
+        #      -- turn off the right LED
+        #    When the right button is being pressed:
+        #      -- print "right"
+        #      -- make the RIGHT led RED
+        #      -- turn off the left LED
+        #   You are required to use the Button instance variables for the up, left, and right (not event callbacks).
+        #   Notice that the word "up" (or "left" or "right" is printed continually while you hold the button)
+        #   Optional: You can also comment out the code above that does the 6 second red, green, off pattern.  It was
+        #     there just to provide you with code examples for using the LEDs.  It does not need to run anymore.
+        #     Just make sure not to comment out too much. ;)
+
         time.sleep(0.1)
 
-        if btn.on_up:
+        if btn.up:
             print('up')
             ev3.Sound.speak("Off")
             ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
             ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        if btn.on_left:
+        if btn.left:
             print('left')
             ev3.Sound.speak("Green")
             ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
             ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        if btn.on_right:
+        if btn.right:
             print('right')
             ev3.Sound.speak("Red")
             ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
