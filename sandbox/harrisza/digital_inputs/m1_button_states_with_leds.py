@@ -52,7 +52,7 @@ def main():
                   ev3.Leds.AMBER]
 
     current_color_index = 0
-    #while True:
+    while True:
     #  TODO: 3. Implement the left, right, and up buttons as follows:
     #    When the up button is being pressed:
     #      -- print the word "up"
@@ -70,26 +70,26 @@ def main():
     #   Optional: You can also comment out the code above that does the 6 second red, green, off pattern.  It was
     #     there just to provide you with code examples for using the LEDs.  It does not need to run anymore.
     #     Just make sure not to comment out too much. ;)
-    btn = ev3.Button()
-    assert btn
+        btn = ev3.Button()
+        assert btn
 
-    if btn.on_up:
-        print('up')
-        ev3.Sound.speak("Off")
-        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
-        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-    if btn.on_left:
-        print('left')
-        ev3.Sound.speak("Green")
-        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
-        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-    if btn.on_right:
-        print('right')
-        ev3.Sound.speak("Red")
-        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
-        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+        if btn.on_up:
+            print('up')
+            ev3.Sound.speak("Off")
+            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
+            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
+        if btn.on_left:
+            print('left')
+            ev3.Sound.speak("Green")
+            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
+        if btn.on_right:
+            print('right')
+            ev3.Sound.speak("Red")
+            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
+            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
 
-    ev3.Leds.all_off()
+        #ev3.Leds.all_off()
 
     # TODO: 4. Implement the down button to change the color of both LEDs.
     #   The first press to down should make both LEDs GREEN, the next press makes them RED, then AMBER, then off.
@@ -118,9 +118,9 @@ def main():
     #   same time as the Brickman operating system.  Both are receiving the button events.  That can be changed, but
     #   it's too much trouble to do here.  So instead we just don't use the Enter button.
 
-    if btn.backspace:
-        break
-    time.sleep(0.01)  # Best practice to have a short delay to avoid working too hard between loop iterations.
+        if btn.backspace:
+            break
+        time.sleep(0.01)  # Best practice to have a short delay to avoid working too hard between loop iterations.
 
 
 # Best practice to leave the LEDs on after you finish a program so you don't put away the robot while still on.
