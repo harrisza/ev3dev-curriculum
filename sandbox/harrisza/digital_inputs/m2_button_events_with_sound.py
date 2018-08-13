@@ -64,7 +64,7 @@ def main():
     # Using lambda call the function handle_shutdown passing in the state and dc
     # Note: the function handle_shutdown does not exist yet, you will write it in todo6.
 
-    btn.on_backspace = lambda state: handle_shutdown(state,dc)
+    btn.on_backspace = lambda state: handle_shutdown(state, dc)
 
     while dc.running:
         btn.process()  # This command is VERY important when using button callbacks!
@@ -97,6 +97,7 @@ def handle_up_button(button_state):
     else:
         print("Up button was released")
 
+
 def handle_down_button(button_state):
     """Handle IR / button event."""
     if button_state:
@@ -104,6 +105,7 @@ def handle_down_button(button_state):
         play_song_by_notes_list()
     else:
         print("Down button was released")
+
 
 def handle_left_button(button_state):
     """Handle IR / button event."""
@@ -113,6 +115,7 @@ def handle_left_button(button_state):
     else:
         print("Left button was released")
 
+
 def handle_right_button(button_state):
     """Handle IR / button event."""
     if button_state:
@@ -120,6 +123,7 @@ def handle_right_button(button_state):
         play_wav_file()
     else:
         print("Right button was released")
+
 
 # DONE: 6. Implement the handle_shutdown function.
 #   Function signature should be:
@@ -140,8 +144,7 @@ def handle_shutdown(button_state, dc):
         dc.running = False
 
 
-
-# TODO: 7. Call over a TA or instructor to sign your team's checkoff sheet and do a code review.
+# DONE: 7. Call over a TA or instructor to sign your team's checkoff sheet and do a code review.
 #
 # Observations you should make, button events are better because you get called only once per press, however, callbacks
 #   make it a bit tricker to pass data around (which is why we used the DataContainer object).
