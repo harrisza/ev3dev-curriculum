@@ -75,7 +75,7 @@ def main():
     #   .on_blue_up   to call handle_blue_up_1   (that exist already) with state and dc as parameters
     #   .on_blue_down to call handle_blue_down_1 (that exist already) with state and dc as parameters
 
-    rc1 = ev3.RemoteControl(chanel = 1)
+    rc1 = ev3.RemoteControl(channel=1)
 
     rc1.on_red_up = lambda state: handle_red_up_1(state, dc)
     rc1.on_red_down = lambda state: handle_red_down_1(state, dc)
@@ -87,14 +87,13 @@ def main():
     #   Channel 3's .on_red_up should call handle_red_up_3 (that exist already) with state and dc as parameters
     #   Channel 4's .on_red_up should call handle_red_up_4 (that exist already) with state and dc as parameters
 
-    rc2 = ev3.RemoteControl(chanel=2)
-    rc3 = ev3.RemoteControl(chanel=3)
-    rc4 = ev3.RemoteControl(chanel=4)
+    rc2 = ev3.RemoteControl(channel=2)
+    rc3 = ev3.RemoteControl(channel=3)
+    rc4 = ev3.RemoteControl(channel=4)
 
     rc2.on_red_up = lambda state: handle_red_up_2(state, dc)
     rc3.on_red_up = lambda state: handle_red_up_3(state, dc)
     rc4.on_red_up = lambda state: handle_red_up_4(state, dc)
-
 
     # Buttons on EV3
     btn = ev3.Button()
