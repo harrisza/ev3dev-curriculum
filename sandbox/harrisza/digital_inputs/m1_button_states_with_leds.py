@@ -24,23 +24,23 @@ def main():
 
     # Opening LED dance (to show the LED syntax)
     # Red LEDs
-    #ev3.Sound.speak("Red")
-    #ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
-    #ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
-    #time.sleep(3)
+    # ev3.Sound.speak("Red")
+    # ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
+    # ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+    # time.sleep(3)
 
     # Green LEDs
-    #ev3.Sound.speak("Green")
-    #ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
-    #ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
-    #time.sleep(3)
+    # ev3.Sound.speak("Green")
+    # ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+    # ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+    # time.sleep(3)
 
     # Turn LEDs off
-    #ev3.Sound.speak("Off")
-    #ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
-    #ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
+    # ev3.Sound.speak("Off")
+    # ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
+    # ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
     # ev3.Leds.all_off()  # Could also use this single command if turning both LEDs off.
-    #print('Press the Back button on the EV3 to exit this program.')
+    # print('Press the Back button on the EV3 to exit this program.')
 
     # Buttons on EV3 (the real focus of this module)
     btn = ev3.Button()  # Construct the one and only EV3 Button object
@@ -70,26 +70,24 @@ def main():
         #   Optional: You can also comment out the code above that does the 6 second red, green, off pattern.  It was
         #     there just to provide you with code examples for using the LEDs.  It does not need to run anymore.
         #     Just make sure not to comment out too much. ;)
-        btn = ev3.Button()
-        assert btn
+    btn = ev3.Button()
+    assert btn
 
-
-        if btn.on_up:
-            print('up')
-            ev3.Sound.speak("Off")
-            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
-            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        if btn.on_left:
-            print('left')
-            ev3.Sound.speak("Green")
-            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
-            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        if btn.on_right:
-            print('right')
-            ev3.Sound.speak("Red")
-            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
-            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
-
+    if btn.on_up:
+        print('up')
+        ev3.Sound.speak("Off")
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
+    if btn.on_left:
+        print('left')
+        ev3.Sound.speak("Green")
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
+    if btn.on_right:
+        print('right')
+        ev3.Sound.speak("Red")
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
 
     ev3.Leds.all_off()
 
