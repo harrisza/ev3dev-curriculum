@@ -76,8 +76,7 @@ def arm_calibration(arm_motor, touch_sensor):
     arm_motor.run_forever(speed_sp=MAX_SPEED)
     while not touch_sensor.is_pressed:
         time.sleep(0.01)
-        if touch_sensor.is_pressed:
-            break
+
     arm_motor.stop(stop_action="brake")
     ev3.Sound.beep().wait()
 
