@@ -90,15 +90,15 @@ def main():
             ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
             ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
 
-        ev3.Leds.all_off()
+        # ev3.Leds.all_off()
 
-            # TODO: 4. Implement the down button to change the color of both LEDs.
-            #   The first press to down should make both LEDs GREEN, the next press makes them RED, then AMBER, then off.
-            #   If the user presses the down button again, wrap around the list to GREEN and continue as before.
-            #   If the user holds down the button, figure out how to make the color change still only happen once.
-            #   Since you are only allowed to use states, not event callbacks, this last request is a pain, but it's doable
-            #     with a while loop that blocks code execution until the down instance variable is False.
-            #     Use a time.sleep(0.01) inside the while loop to do nothing but wait for the button to be released.
+        # TODO: 4. Implement the down button to change the color of both LEDs.
+        #   The first press to down should make both LEDs GREEN, the next press makes them RED, then AMBER, then off.
+        #   If the user presses the down button again, wrap around the list to GREEN and continue as before.
+        #   If the user holds down the button, figure out how to make the color change still only happen once.
+        #   Since you are only allowed to use states, not event callbacks, this last request is a pain, but it's doable
+        #     with a while loop that blocks code execution until the down instance variable is False.
+        #     Use a time.sleep(0.01) inside the while loop to do nothing but wait for the button to be released.
 
         if btn.down:
             if times_pressed == 4:
@@ -123,8 +123,6 @@ def main():
                 ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
                 ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
                 times_pressed = times_pressed + 1
-
-
 
             # TODO: 5. Formally test your work. When you think you have the problem complete run these tests:
             #   Press Left - Green left LED is on (try holding the button down for a few seconds when you to the press)
