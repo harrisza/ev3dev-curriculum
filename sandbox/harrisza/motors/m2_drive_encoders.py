@@ -71,7 +71,7 @@ main()
 
 # DONE: 5. Make sure the beep happens AFTER the motors stop.  Use the wait_while command to block code execution.
 
-# TODO: 6. Formally test your work. When you think you have the problem complete run these tests:
+# DONE: 6. Formally test your work. When you think you have the problem complete run these tests:
 #   200 dps 24 inches (make sure it drives within 2 inches of the target distance)
 #   400 dps 24 inches (make sure it drives within 2 inches of the target distance)
 #   800 dps 24 inches (make sure it drives within 2 inches of the target distance)
