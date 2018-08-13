@@ -23,10 +23,10 @@ while True:
     turn_speed_sp = int(input("Speed (0 to 900 dps): "))
     if turn_speed_sp == 0:
         break
-    degrees_to_turn = int(input("Degrees to turn: "))
-    if degrees_to_turn == 0:
+    dist = int(input("Degrees to turn: "))
+    if dist == 0:
         break
-    dist = degrees_to_turn * (4 / 360)
+    degrees_to_turn = dist  * (4 / 360) * 90
 
     robot.turn_degrees(dist, turn_speed_sp)
     ev3.Sound.beep().wait()  # Fun little beep
