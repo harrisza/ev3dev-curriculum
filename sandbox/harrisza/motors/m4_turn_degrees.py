@@ -29,7 +29,6 @@ while True:
 
     degrees_to_turn = dist + (dist / 3)
 
-
     robot.turn_degrees(degrees_to_turn, turn_speed_sp)
     ev3.Sound.beep().wait()  # Fun little beep
 
