@@ -29,7 +29,7 @@ def main():
         if sides == 0:
             break
 
-        turn_amount = (360 / sides) + ((360 / sides) / 2)
+        turn_amount = (360 / sides) + ((360 / sides) / 2.5)
 
         edge_length_in = int(input("Length of each edge (inches): "))
         if edge_length_in == 0:
