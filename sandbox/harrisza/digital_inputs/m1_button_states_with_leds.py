@@ -52,24 +52,24 @@ def main():
                   ev3.Leds.AMBER]
 
     current_color_index = 0
-    while True:
-        # TODO: 3. Implement the left, right, and up buttons as follows:
-        #    When the up button is being pressed:
-        #      -- print the word "up"
-        #      -- turn off all LEDs
-        #    When the left button is being pressed:
-        #      -- print the word "left"
-        #      -- make the LEFT led GREEN
-        #      -- turn off the right LED
-        #    When the right button is being pressed:
-        #      -- print "right"
-        #      -- make the RIGHT led RED
-        #      -- turn off the left LED
-        #   You are required to use the Button instance variables for the up, left, and right (not event callbacks).
-        #   Notice that the word "up" (or "left" or "right" is printed continually while you hold the button)
-        #   Optional: You can also comment out the code above that does the 6 second red, green, off pattern.  It was
-        #     there just to provide you with code examples for using the LEDs.  It does not need to run anymore.
-        #     Just make sure not to comment out too much. ;)
+    #while True:
+    #  TODO: 3. Implement the left, right, and up buttons as follows:
+    #    When the up button is being pressed:
+    #      -- print the word "up"
+    #      -- turn off all LEDs
+    #    When the left button is being pressed:
+    #      -- print the word "left"
+    #      -- make the LEFT led GREEN
+    #      -- turn off the right LED
+    #    When the right button is being pressed:
+    #      -- print "right"
+    #      -- make the RIGHT led RED
+    #      -- turn off the left LED
+    #   You are required to use the Button instance variables for the up, left, and right (not event callbacks).
+    #   Notice that the word "up" (or "left" or "right" is printed continually while you hold the button)
+    #   Optional: You can also comment out the code above that does the 6 second red, green, off pattern.  It was
+    #     there just to provide you with code examples for using the LEDs.  It does not need to run anymore.
+    #     Just make sure not to comment out too much. ;)
     btn = ev3.Button()
     assert btn
 
