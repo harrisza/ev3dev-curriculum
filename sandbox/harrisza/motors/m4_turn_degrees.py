@@ -26,7 +26,7 @@ while True:
     dist = int(input("Degrees to turn: "))
     if dist == 0:
         break
-    degrees_to_turn = dist * (4 / 360) * 90
+    degrees_to_turn = dist + 20
 
     robot.turn_degrees(degrees_to_turn, turn_speed_sp)
     ev3.Sound.beep().wait()  # Fun little beep
