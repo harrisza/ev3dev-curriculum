@@ -124,9 +124,9 @@ def main():
 
 
 # Best practice to leave the LEDs on after you finish a program so you don't put away the robot while still on.
-ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
-ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
-ev3.Sound.speak("Goodbye").wait()
+# ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+# ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+# ev3.Sound.speak("Goodbye").wait()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
