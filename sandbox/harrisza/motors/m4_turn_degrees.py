@@ -27,7 +27,7 @@ while True:
     if dist == 0:
         break
     if dist < 0:
-        degrees_to_turn = dist - ((-1* dist) / 3)
+        degrees_to_turn = dist - ((-1 * dist) / 3)
     else:
         degrees_to_turn = dist + (dist / 3)
 
