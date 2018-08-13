@@ -32,7 +32,6 @@ def main():
         command_to_run = input("Enter c (for calibrate), u (for up), d (for down), or q (for quit): ")
         if command_to_run == 'c':
             print("Calibrate the arm")
-            print("TODO: 3 is to delete this print statement, uncomment the line below, and implement that function.")
             arm_calibration(arm_motor, touch_sensor)
         elif command_to_run == 'u':
             print("Move the arm to the up position")
@@ -77,13 +76,12 @@ def arm_calibration(arm_motor, touch_sensor):
     arm_motor.run_forever(speed_sp=MAX_SPEED)
     while not touch_sensor:
         time.sleep(0.01)
-        if touch_sensor:
-            break
+
     arm_motor.stop(stop_action="brake")
     ev3.Sound.beep().wait()
 
     arm_revolutions_for_full_range = -14.2
-    arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range)
+    arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range, speed_sp = MAX_SPEED)
     arm_motor.wait_while(ev3.Motor.STATE_STALLED)
     ev3.Sound.beep().wait()
     arm_motor.position = 0  # Calibrate the down position as 0 (this line is correct as is).
