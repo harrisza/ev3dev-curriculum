@@ -86,7 +86,8 @@ def main():
     time_s = 1  # Any value other than 0.
     while time_s != 0:
         speed_sp = int(input("Enter a speed (0 to 900 dps): "))
-        time_s = int(input("Enter a distance (inches): "))/speed_sp
+        dist = int(input("Enter a distance (inches): "))
+        time_s = dist/(0.011*speed_sp)
         left_motor.run_forever(speed_sp)
         right_motor.run_forever(speed_sp)
         time.sleep(time_s)
