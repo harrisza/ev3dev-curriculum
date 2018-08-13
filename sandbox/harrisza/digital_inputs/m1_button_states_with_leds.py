@@ -53,7 +53,7 @@ def main():
     assert btn
     current_color_index = 0
     while True:
-        #  TODO: 3. Implement the left, right, and up buttons as follows:
+        #  DONE: 3. Implement the left, right, and up buttons as follows:
         #    When the up button is being pressed:
         #      -- print the word "up"
         #      -- turn off all LEDs
@@ -124,9 +124,9 @@ def main():
 
 
 # Best practice to leave the LEDs on after you finish a program so you don't put away the robot while still on.
-# ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
-# ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
-# ev3.Sound.speak("Goodbye").wait()
+    ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+    ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+    ev3.Sound.speak("Goodbye").wait()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
