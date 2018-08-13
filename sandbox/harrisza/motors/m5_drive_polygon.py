@@ -29,9 +29,9 @@ def main():
         if sides == 0:
             break
         if sides > 0:
-            turn_amount = (360 / sides) + 30
+            turn_amount = (360 / sides) + 35
         else:
-            turn_amount = (360 / sides) - 30
+            turn_amount = (360 / sides) - 35
 
         edge_length_in = int(input("Length of each edge (inches): "))
         if edge_length_in == 0:
