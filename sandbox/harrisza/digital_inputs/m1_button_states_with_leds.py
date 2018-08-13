@@ -108,21 +108,25 @@ def main():
                 ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
                 ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
                 times_pressed = times_pressed + 1
+                time.sleep(1)
             if times_pressed == 1:
                 ev3.Sound.speak("Red")
                 ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
                 ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
                 times_pressed = times_pressed + 1
+                time.sleep(1)
             if times_pressed == 2:
                 ev3.Sound.speak("Amber")
                 ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.AMBER)
                 ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.AMBER)
                 times_pressed = times_pressed + 1
+                time.sleep(1)
             if times_pressed == 3:
                 ev3.Sound.speak("Off")
                 ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
                 ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
                 times_pressed = times_pressed + 1
+                time.sleep(1)
 
             # TODO: 5. Formally test your work. When you think you have the problem complete run these tests:
             #   Press Left - Green left LED is on (try holding the button down for a few seconds when you to the press)
