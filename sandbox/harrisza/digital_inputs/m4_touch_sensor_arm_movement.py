@@ -85,6 +85,7 @@ def arm_calibration(arm_motor, touch_sensor):
         arm_revolutions_for_full_range = 14.1
         arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range * 360, speed_sp=MAX_SPEED)
         if arm_motor.position == 0:
+            arm_motor.stop(stop_action = 'brake')
             break
     arm_motor.wait_while(ev3.Motor.STATE_STALLED)
     ev3.Sound.beep().wait()
