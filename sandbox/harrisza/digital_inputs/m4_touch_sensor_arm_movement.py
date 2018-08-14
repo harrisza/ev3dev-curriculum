@@ -38,8 +38,7 @@ def main():
             arm_up(arm_motor, touch_sensor)
         elif command_to_run == 'd':
             print("Move the arm to the down position")
-            print("TODO: 5 is to delete this print statement, uncomment the line below, and implement that function.")
-            # arm_down(arm_motor)
+            arm_down(arm_motor)
         elif command_to_run == 'q':
             break
         else:
@@ -126,8 +125,9 @@ def arm_down(arm_motor):
     # Make a beep sound
 
     # Code that attempts to do this task but has bugs.  Fix them.
-    arm_motor.run_to_abs_pos()
-    arm_motor.wait_while(ev3.Motor.STATE_HOLDING)  # Blocks until the motor finishes running
+    arm_motor.run_to_abs_pos(positon_sp=0, speed_sp=MAX_SPEED)
+    arm_motor.wait_while(ev3.Motor.STATE_STALLED)  # Blocks until the motor finishes running
+    ev3.Sound.beep().wait()
 
     # TODO: 6. After you fix the bugs in the three arm movement commands demo your code to a TA or instructor.
     #
