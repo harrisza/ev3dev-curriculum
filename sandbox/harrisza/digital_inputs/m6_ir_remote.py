@@ -74,8 +74,8 @@ def main():
 
     rc1.on_red_up = lambda button_state: handle_move_left_forward(button_state, robot)
     rc1.on_red_down = lambda button_state: handle_move_left_back(button_state, robot)
-    rc1.on_blue_up = lambda button_state: handle_move_right_forward(button_state,robot)
-    rc1.on_blue_down = lambda button_state: handle_move_right_back(button_state,robot)
+    rc1.on_blue_up = lambda button_state: handle_move_right_forward(button_state, robot)
+    rc1.on_blue_down = lambda button_state: handle_move_right_back(button_state, robot)
     rc2.on_red_up = lambda button_state: handle_arm_up_button(button_state, robot)
     rc2.on_red_down = lambda button_state: handle_arm_down_button(button_state, robot)
     rc2.on_blue_up = lambda button_state: handle_calibrate_button(button_state, robot)
@@ -103,8 +103,6 @@ def main():
     # DONE: 6. Implement the IR handler callbacks handlers.
 
 
-
-
 # DONE: 7. When your program is complete, call over a TA or instructor to sign your checkoff sheet and do a code review.
 #
 # Observations you should make, IR buttons are a fun way to control the robot.
@@ -114,24 +112,32 @@ def handle_move_left_forward(button_state, robot):
     robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
         robot.left_motor.run_forever(speed_sp=300)
+    else:
+        robot.left_motor.stop()
 
 
 def handle_move_left_back(button_state, robot):
     robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
         robot.left_motor.run_forever(speed_sp=-300)
+    else:
+        robot.left_motor.stop()
 
 
 def handle_move_right_forward(button_state, robot):
-    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_c)
     if button_state:
         robot.right_motor.run_forever(speed_sp=300)
+    else:
+        robot.right_motor.stop()
 
 
 def handle_move_right_back(button_state, robot):
-    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_c)
     if button_state:
         robot.right_motor.run_forever(speed_sp=-300)
+    else:
+        robot.right_motor.stop()
 
 
 def handle_arm_up_button(button_state, robot):
