@@ -22,9 +22,6 @@ class Snatch3r(object):
     # TODO: Implement the Snatch3r class as needed when working the sandox exercises
     # (and delete these comments)
 
-
-
-
     def drive_inches(self, inches_to_drive, drive_speed_sp):
         left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
         right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
