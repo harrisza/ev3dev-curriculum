@@ -72,6 +72,15 @@ def main():
 
     robot.arm_calibration()  # Start with an arm calibration in this program.
 
+    rc1.on_red_up = lambda button_state: handle_move_left_forward(button_state, robot)
+    rc1.on_red_down = lambda button_state: handle_move_left_back(button_state, robot)
+    rc1.on_blue_up = lambda button_state: handle_move_right_forward(button_state,robot)
+    rc1.on_blue_down = lambda button_state: handle_move_right_back(button_state,robot)
+    rc2.on_red_up = lambda button_state: handle_arm_up_button(button_state, robot)
+    rc2.on_red_down = lambda button_state: handle_arm_down_button(button_state, robot)
+    rc2.on_blue_up = lambda button_state: handle_calibrate_button(button_state, robot)
+    rc2.on_blue_down = lambda button_state: handle_shutdown(button_state, robot)
+
     while dc.running:
         # DONE: 5. Process the RemoteControl objects.
         btn.process()
@@ -86,51 +95,44 @@ def main():
     # Once the library is implemented any team member should be able to run his code as stated in todo3.
     robot.shutdown()
 
+    # ----------------------------------------------------------------------
+    # Event handlers
+    # Some event handlers have been written for you (ones for the arm).
+    # Movement event handlers have not been provided.
+    # ----------------------------------------------------------------------
+    # DONE: 6. Implement the IR handler callbacks handlers.
 
-# ----------------------------------------------------------------------
-# Event handlers
-# Some event handlers have been written for you (ones for the arm).
-# Movement event handlers have not been provided.
-# ----------------------------------------------------------------------
-# DONE: 6. Implement the IR handler callbacks handlers.
 
-    rc1.on_red_up = handle_move_left_forward
-    rc1.on_red_down = handle_move_left_back
-    rc1.on_blue_up = handle_move_right_forward
-    rc1.on_blue_down = handle_move_right_back
-    rc2.on_red_up = lambda button_state: handle_arm_up_button(button_state, robot)
-    rc2.on_red_down = lambda button_state: handle_arm_down_button(button_state, robot)
-    rc2.on_blue_up = lambda button_state: handle_calibrate_button(button_state, robot)
-    rc2.on_blue_down = lambda button_state: handle_shutdown(button_state, robot)
+
 
 # DONE: 7. When your program is complete, call over a TA or instructor to sign your checkoff sheet and do a code review.
 #
 # Observations you should make, IR buttons are a fun way to control the robot.
 
 
-
-
-def handle_move_left_forward(button_state):
-    left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+def handle_move_left_forward(button_state, robot):
+    robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
-        left_motor.run_forever(speed_sp = 300)
+        robot.left_motor.run_forever(speed_sp=300)
 
-def handle_move_left_back(button_state):
-    left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+
+def handle_move_left_back(button_state, robot):
+    robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
-        left_motor.run_forever(speed_sp = -300)
+        robot.left_motor.run_forever(speed_sp=-300)
 
 
-def handle_move_right_forward(button_state):
-    right_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+def handle_move_right_forward(button_state, robot):
+    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
-        right_motor.run_forever(speed_sp=300)
+        robot.right_motor.run_forever(speed_sp=300)
 
 
-def handle_move_right_back(button_state):
-    right_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+def handle_move_right_back(button_state, robot):
+    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
-        right_motor.run_forever(speed_sp=-300)
+        robot.right_motor.run_forever(speed_sp=-300)
+
 
 def handle_arm_up_button(button_state, robot):
     """
