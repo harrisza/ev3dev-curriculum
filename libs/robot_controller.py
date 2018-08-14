@@ -22,6 +22,9 @@ class Snatch3r(object):
     # TODO: Implement the Snatch3r class as needed when working the sandox exercises
     # (and delete these comments)
 
+
+
+
     def drive_inches(self, inches_to_drive, drive_speed_sp):
         left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
         right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
@@ -57,7 +60,37 @@ class Snatch3r(object):
         touch_sensor = ev3.TouchSensor()
         assert touch_sensor
 
+        arm_motor.run_forever(speed_sp=900)
+        while not touch_sensor.is_pressed:
+            time.sleep(0.01)
+            if touch_sensor.is_pressed:
+                break
+
+        if not touch_sensor.is_pressed:
+            arm_motor.run_to_abs_pos(position_sp=0, speed_sp=900)
+
+            arm_motor.wait_while(ev3.Motor.STATE_STALLED)
+            ev3.Sound.beep().wait()
+            arm_motor.position = 0
 
     def arm_up(self):
+        arm_motor = ev3.MediumMotor(ev3.OUTPUT_A)
+        assert arm_motor.connected
+
+        touch_sensor = ev3.TouchSensor()
+        assert touch_sensor
+        arm_motor.run_forever(speed_sp=900)
+        while not touch_sensor.is_pressed:
+            time.sleep(0.01)
+        arm_motor.stop()
+        ev3.Sound.beep().wait()
 
     def arm_down(self):
+        arm_motor = ev3.MediumMotor(ev3.OUTPUT_A)
+        assert arm_motor.connected
+
+        touch_sensor = ev3.TouchSensor()
+        assert touch_sensor
+        arm_motor.run_to_abs_pos(position_sp=0, speed_sp=900)
+        arm_motor.wait_while(ev3.Motor.STATE_STALLED)  # Blocks until the motor finishes running
+        ev3.Sound.beep().wait()
