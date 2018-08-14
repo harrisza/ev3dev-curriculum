@@ -125,7 +125,7 @@ def handle_move_left_back(button_state, robot):
 
 
 def handle_move_right_forward(button_state, robot):
-    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_c)
+    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
     if button_state:
         robot.right_motor.run_forever(speed_sp=300)
     else:
@@ -133,7 +133,7 @@ def handle_move_right_forward(button_state, robot):
 
 
 def handle_move_right_back(button_state, robot):
-    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_c)
+    robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
     if button_state:
         robot.right_motor.run_forever(speed_sp=-300)
     else:
