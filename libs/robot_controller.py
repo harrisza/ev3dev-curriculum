@@ -97,3 +97,6 @@ class Snatch3r(object):
         arm_motor.run_to_abs_pos(position_sp=0, speed_sp=900)
         arm_motor.wait_while(ev3.Motor.STATE_STALLED)  # Blocks until the motor finishes running
         ev3.Sound.beep().wait()
+
+    def shutdown(self):
+        print('Press Ctrl C to end the program')
