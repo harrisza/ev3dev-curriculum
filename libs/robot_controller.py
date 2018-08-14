@@ -19,7 +19,7 @@ import time
 class Snatch3r(object):
     """Commands for the Snatch3r robot that might be useful in many different programs."""
 
-    # TODO: Implement the Snatch3r class as needed when working the sandox exercises
+    # DONE: Implement the Snatch3r class as needed when working the sandox exercises
     # (and delete these comments)
 
     def drive_inches(self, inches_to_drive, drive_speed_sp):
@@ -60,11 +60,17 @@ class Snatch3r(object):
         arm_motor.run_forever(speed_sp=900)
         while not touch_sensor.is_pressed:
             time.sleep(0.01)
-            if touch_sensor.is_pressed:
-                break
+
+        arm_revolutions_for_full_range = 14.2
+        if touch_sensor.is_pressed:
+            arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range * 360, speed_sp=900)
+
+            arm_motor.wait_while(ev3.Motor.STATE_STALLED)
+            ev3.Sound.beep().wait()
+            time.sleep(10)
 
         if not touch_sensor.is_pressed:
-            arm_motor.run_to_abs_pos(position_sp=0, speed_sp=900)
+            arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range * 360, speed_sp=900)
 
             arm_motor.wait_while(ev3.Motor.STATE_STALLED)
             ev3.Sound.beep().wait()
