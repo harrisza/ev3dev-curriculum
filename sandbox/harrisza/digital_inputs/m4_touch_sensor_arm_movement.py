@@ -81,8 +81,11 @@ def arm_calibration(arm_motor, touch_sensor):
         ev3.Sound.beep().wait()
         arm_motor.run_to_rel_pos(position_sp=-0.1 * 360, speed_sp=MAX_SPEED)
         time.sleep(0.1)
-    arm_revolutions_for_full_range = 14.1
-    arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range * 360, speed_sp=MAX_SPEED)
+    while not touch_sensor.is_pressed:
+        arm_revolutions_for_full_range = 14.1
+        arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range * 360, speed_sp=MAX_SPEED)
+        if arm_motor.position == 0:
+            break
     arm_motor.wait_while(ev3.Motor.STATE_STALLED)
     ev3.Sound.beep().wait()
     arm_motor.position = 0  # Calibrate the down position as 0 (this line is correct as is).
