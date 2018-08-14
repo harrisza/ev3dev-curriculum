@@ -81,7 +81,7 @@ def arm_calibration(arm_motor, touch_sensor):
         ev3.Sound.beep().wait()
         arm_motor.run_to_rel_pos(position_sp=-0.1 * 360, speed_sp=MAX_SPEED)
         time.sleep(0.1)
-    if not touch_sensor.is_pressed:
+    if touch_sensor.is_pressed == False:
         arm_revolutions_for_full_range = 14.1
         arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range * 360, speed_sp=MAX_SPEED)
         arm_motor.wait_while(ev3.Motor.STATE_STALLED)
