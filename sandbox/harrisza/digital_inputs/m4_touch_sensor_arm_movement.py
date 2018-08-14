@@ -35,8 +35,7 @@ def main():
             arm_calibration(arm_motor, touch_sensor)
         elif command_to_run == 'u':
             print("Move the arm to the up position")
-            print("TODO: 4 is to delete this print statement, uncomment the line below, and implement that function.")
-            # arm_up(arm_motor, touch_sensor)
+            arm_up(arm_motor, touch_sensor)
         elif command_to_run == 'd':
             print("Move the arm to the down position")
             print("TODO: 5 is to delete this print statement, uncomment the line below, and implement that function.")
@@ -85,7 +84,7 @@ def arm_calibration(arm_motor, touch_sensor):
         arm_revolutions_for_full_range = 14.1
         arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range * 360, speed_sp=MAX_SPEED,
                                  stop_action=ev3.MediumMotor.STOP_ACTION_BRAKE)
-        arm_motor.stop()
+
     arm_motor.wait_while(ev3.Motor.STATE_STALLED)
     ev3.Sound.beep().wait()
     arm_motor.position = 0  # Calibrate the down position as 0 (this line is correct as is).
@@ -99,7 +98,7 @@ def arm_up(arm_motor, touch_sensor):
       :type arm_motor: ev3.MediumMotor
       :type touch_sensor: ev3.TouchSensor
     """
-    # TODO: 4. Implement the arm up movement by fixing the code below
+    # DONE: 4. Implement the arm up movement by fixing the code below
     # Command the arm_motor to run forever in the positive direction at max speed.
     # Create a while loop that will block code execution until the touch sensor is pressed.
     #   Within the loop sleep for 0.01 to avoid running code too fast.
@@ -108,9 +107,10 @@ def arm_up(arm_motor, touch_sensor):
 
     # Code that attempts to do this task but has many bugs.  Fix them!
     arm_motor.run_forever(speed_sp=MAX_SPEED)
-    while touch_sensor.is_pressed:
+    while not touch_sensor.is_pressed:
         time.sleep(0.01)
     arm_motor.stop()
+    ev3.Sound.beep().wait()
 
 
 def arm_down(arm_motor):
