@@ -49,3 +49,15 @@ class Snatch3r(object):
         left_motor.wait_while(ev3.Motor.STATE_RUNNING)
         right_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep().wait()
+
+    def arm_calibration(self):
+        arm_motor = ev3.MediumMotor(ev3.OUTPUT_A)
+        assert arm_motor.connected
+
+        touch_sensor = ev3.TouchSensor()
+        assert touch_sensor
+
+
+    def arm_up(self):
+
+    def arm_down(self):
