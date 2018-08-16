@@ -98,8 +98,11 @@ def drive_to_color(button_state, robot, color_to_seek):
         assert robot.left_motor.connected
         assert robot.right_motor.connected
 
-        robot.left_motor.run_forever(speed_sp=400)
-        robot.right_motor.run_forever(speed_sp=400)
+        current_color = robot.color_sensor.color
+
+        while not current_color == color_to_seek:
+            robot.left_motor.run_forever(speed_sp=400)
+            robot.right_motor.run_forever(speed_sp=400)
 
         # DONE: 3. Implement the task as stated in this module's initial comment block
         # It is recommended that you add to your Snatch3r class's constructor the color_sensor, as shown
@@ -107,11 +110,9 @@ def drive_to_color(button_state, robot, color_to_seek):
         #   assert self.color_sensor
         # Then here you can use a command like robot.color_sensor.color to check the value
 
-    current_color = robot.color_sensor.color
-    if current_color == color_to_seek:
+        
         robot.left_motor.stop()
         robot.right_motor.stop()
-
 
         # DONE: 4. Call over a TA or instructor to sign your team's checkoff sheet.
         #
