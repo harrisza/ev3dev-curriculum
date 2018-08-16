@@ -98,8 +98,8 @@ def drive_to_color(button_state, robot, color_to_seek):
         assert robot.left_motor.connected
         assert robot.right_motor.connected
 
-        robot.left_motor.run_forever(speed_sp=400)
-        robot.right_motor.run_forever(speed_sp=400)
+        robot.left_motor.run_to_rel_pos(speed_sp=400,time_sp = 10000)
+        robot.right_motor.run_to_rel_pos(speed_sp=400,time_sp = 10000)
         current_color = robot.color_sensor.color
         while not current_color == color_to_seek:
             time.sleep(0.01)
@@ -109,10 +109,9 @@ def drive_to_color(button_state, robot, color_to_seek):
         #   assert self.color_sensor
         # Then here you can use a command like robot.color_sensor.color to check the value
 
-
         if current_color == color_to_seek:
-            robot.left_motor.run_forever(speed_sp=-400)
-            robot.right_motor.run_forvever(speed_sp=-400)
+            robot.left_motor.stop().wait()
+            robot.right_motor.stop().wait()
 
         # DONE: 4. Call over a TA or instructor to sign your team's checkoff sheet.
         #
