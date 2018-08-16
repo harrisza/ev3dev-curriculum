@@ -198,7 +198,7 @@ def dance_1(button_state, robot):
         robot.left_motor.run_forever(speed_sp=400)
         robot.right_motor.run_forever(speed_sp=-400)
 
-        play_song_by_individual_tones()
+        play_song_by_individual_tones().wait()
 
 
     else:
@@ -213,14 +213,13 @@ def dance_2(button_state, robot):
         robot.left_motor.run_forever(speed_sp=-400)
         robot.right_motor.run_forever(speed_sp=400)
 
-        play_song_by_notes_list()
+        play_song_by_notes_list().wait()
 
 
     else:
 
         robot.left_motor.stop()
         robot.right_motor.stop()
-
 
 
 def dance_3(button_state, robot):
@@ -230,20 +229,19 @@ def dance_3(button_state, robot):
         robot.left_motor.run_forever(speed_sp=-400)
         robot.right_motor.run_forever(speed_sp=400)
 
-        ev3.Sound.speak('Everything is awesome!')
+        ev3.Sound.speak('Everything is awesome!').wait()
 
     else:
         robot.arm_down()
 
         robot.left_motor.stop()
         robot.right_motor.stop()
-        
 
 
 def dance_4(button_state, robot):
     """Handle IR / button event."""
     if button_state:
-        play_wav_file()
+        play_wav_file().wait()
         robot.arm_up()
         robot.arm_down()
 
