@@ -13,6 +13,8 @@ def main():
     print("IR Remote")
     print(" - Use IR remote channel 1 to drive around")
     print(" - Use IR remote channel 2 to for the arm")
+    print(" - Use IR remote channel 3 to draw shapes")
+    print(" - Use IR remote channel 4 to dance!")
     print(" - Press the Back button on EV3 to exit")
     print("--------------------------------------------")
     ev3.Sound.speak("I R Remote")
@@ -44,6 +46,10 @@ def main():
     rc2.on_red_down = lambda button_state: handle_arm_down_button(button_state, robot)
     rc2.on_blue_up = lambda button_state: handle_calibrate_button(button_state, robot)
     rc2.on_blue_down = lambda button_state: handle_shutdown(button_state, robot)
+    rc3.on_red_up = lambda button_state: draw_triangle(button_state,robot)
+    rc3.on_red_down = lambda button_state: draw_square(button_state,robot)
+    rc3.on_blue_up = lambda button_state: draw_pentagon(button_state,robot)
+    rc3.on_blue_down = lambda button_state: draw_hexagon(button_state,robot)
 
     while dc.running:
         # DONE: 5. Process the RemoteControl objects.
@@ -131,6 +137,39 @@ def handle_shutdown(button_state, dc):
     """
     if button_state:
         dc.running = False
+
+def draw_triangle(button_state,robot):
+
+    if button_state:
+        turn_amount = (360 / 3) + ((360 / 3) / 2.5)
+        for k in range(3):
+            robot.drive_inches(25, 900)
+            robot.turn_degrees(turn_amount, 900)
+
+
+def draw_square(button_state, robot):
+    if button_state:
+        turn_amount = (360 / 4) + ((360 / 4) / 2.5)
+        for k in range(4):
+            robot.drive_inches(25, 900)
+            robot.turn_degrees(turn_amount, 900)
+
+
+def draw_pentagon(button_state, robot):
+    if button_state:
+        turn_amount = (360 / 5) + ((360 / 5) / 2.5)
+        for k in range(5):
+            robot.drive_inches(25, 900)
+            robot.turn_degrees(turn_amount, 900)
+
+
+def draw_hexagon(button_state, robot):
+    if button_state:
+        turn_amount = (360 / 6) + ((360 / 6) / 2.5)
+        for k in range(6):
+            robot.drive_inches(25, 900)
+            robot.turn_degrees(turn_amount, 900)
+
 
 
 main()
