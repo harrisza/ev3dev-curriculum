@@ -195,10 +195,13 @@ def draw_hexagon(button_state, robot):
 def dance_1(button_state, robot):
     """Handle IR / button event."""
     if button_state:
+        robot.left_motor.run_forever(speed_sp=400)
+        robot.right_motor.run_forever(speed_sp=-400)
         while button_state:
             play_song_by_individual_tones()
-            robot.left_motor.run_forever(speed_sp=400)
-            robot.right_motor.run_forever(speed_sp=-400)
+
+            if not button_state:
+                break
     else:
         robot.left_motor.stop()
         robot.right_motor.stop()
@@ -207,10 +210,13 @@ def dance_1(button_state, robot):
 def dance_2(button_state, robot):
     """Handle IR / button event."""
     if button_state:
+        robot.left_motor.run_forever(speed_sp=-400)
+        robot.right_motor.run_forever(speed_sp=400)
         while button_state:
             play_song_by_notes_list()
-            robot.left_motor.run_forever(speed_sp=-400)
-            robot.right_motor.run_forever(speed_sp=400)
+
+            if not button_state:
+                break
     else:
         robot.left_motor.stop()
         robot.right_motor.stop()
@@ -225,6 +231,8 @@ def dance_3(button_state, robot):
         while button_state:
             ev3.Sound.speak('Everything is awesome!')
             time.sleep(1)
+            if not button_state:
+                break
     else:
         robot.left_motor.stop()
         robot.right_motor.stop()
