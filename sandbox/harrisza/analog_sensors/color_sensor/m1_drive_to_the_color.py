@@ -54,7 +54,6 @@ def main():
     ev3.Sound.speak("Drive to the color").wait()
     print("Press Back to exit this program.")
 
-
     dc = DataContainer()
 
     # For our standard shutdown button.
@@ -110,15 +109,15 @@ def drive_to_color(button_state, color_to_seek):
         # Then here you can use a command like robot.color_sensor.color to check the value
 
         if current_color == color_to_seek:
-            left_motor.run_forever(speed_sp=-400).wait()
-            right_motor.run_forvever(speed_sp=-400).wait()
+            left_motor.run_forever(speed_sp=-400)
+            right_motor.run_forvever(speed_sp=-400)
 
         # DONE: 4. Call over a TA or instructor to sign your team's checkoff sheet.
         #
         # Observations you should make, the instance variable robot.color_sensor.color is always updating
         # to the color seen and that value is given to you as an int.
 
-        ev3.Sound.speak("Found " + COLOR_NAMES[color_to_seek]).wait()
+        ev3.Sound.speak("Found " + COLOR_NAMES[color_to_seek])
 
 
 def handle_shutdown(button_state, dc):
