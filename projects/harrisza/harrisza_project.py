@@ -197,16 +197,15 @@ def dance_1(button_state, robot):
     if button_state:
         robot.left_motor.run_forever(speed_sp=400)
         robot.right_motor.run_forever(speed_sp=-400)
-        while button_state:
-            play_song_by_individual_tones()
 
-            if not button_state:
-                break
+        play_song_by_individual_tones()
+
+
     else:
-        while not button_state:
-            robot.left_motor.stop()
-            robot.right_motor.stop()
-            ev3.Sound.stop()
+
+        robot.left_motor.stop()
+        robot.right_motor.stop()
+
 
 
 def dance_2(button_state, robot):
@@ -214,16 +213,15 @@ def dance_2(button_state, robot):
     if button_state:
         robot.left_motor.run_forever(speed_sp=-400)
         robot.right_motor.run_forever(speed_sp=400)
-        while button_state:
-            play_song_by_notes_list()
 
-            if not button_state:
-                break
+        play_song_by_notes_list()
+
+
     else:
-        while not button_state:
-            robot.left_motor.stop()
-            robot.right_motor.stop()
-            ev3.Sound.stop()
+
+        robot.left_motor.stop()
+        robot.right_motor.stop()
+        ev3.Sound.stop()
 
 
 def dance_3(button_state, robot):
@@ -232,29 +230,26 @@ def dance_3(button_state, robot):
         robot.arm_up()
         robot.left_motor.run_forever(speed_sp=-400)
         robot.right_motor.run_forever(speed_sp=400)
-        while button_state:
-            ev3.Sound.speak('Everything is awesome!')
-            time.sleep(1)
-            if not button_state:
-                break
+
+        ev3.Sound.speak('Everything is awesome!')
+
     else:
         robot.arm_down()
-        while not button_state:
-            robot.left_motor.stop()
-            robot.right_motor.stop()
-            ev3.Sound.stop()
+
+        robot.left_motor.stop()
+        robot.right_motor.stop()
+        ev3.Sound.stop()
 
 
 def dance_4(button_state, robot):
     """Handle IR / button event."""
     if button_state:
-        while button_state:
-            play_wav_file()
-            robot.arm_up()
-            robot.arm_down()
-    else:
-        while not button_state:
-            ev3.Sound.stop()
+
+        play_wav_file()
+        robot.arm_up()
+        robot.arm_down()
+
+         
 
 
 def play_song_by_individual_tones():
