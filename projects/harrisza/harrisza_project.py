@@ -79,7 +79,7 @@ class DataContainer(object):
 def handle_move_left_forward(button_state, robot):
     robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
-        robot.left_motor.run_forever(speed_sp=300)
+        robot.left_motor.run_forever(speed_sp=900)
     else:
         robot.left_motor.stop()
 
@@ -87,7 +87,7 @@ def handle_move_left_forward(button_state, robot):
 def handle_move_left_back(button_state, robot):
     robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
     if button_state:
-        robot.left_motor.run_forever(speed_sp=-300)
+        robot.left_motor.run_forever(speed_sp=-900)
     else:
         robot.left_motor.stop()
 
@@ -95,7 +95,7 @@ def handle_move_left_back(button_state, robot):
 def handle_move_right_forward(button_state, robot):
     robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
     if button_state:
-        robot.right_motor.run_forever(speed_sp=300)
+        robot.right_motor.run_forever(speed_sp=900)
     else:
         robot.right_motor.stop()
 
@@ -103,7 +103,7 @@ def handle_move_right_forward(button_state, robot):
 def handle_move_right_back(button_state, robot):
     robot.right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
     if button_state:
-        robot.right_motor.run_forever(speed_sp=-300)
+        robot.right_motor.run_forever(speed_sp=-900)
     else:
         robot.right_motor.stop()
 
@@ -159,7 +159,7 @@ def handle_shutdown(button_state, dc):
 def draw_triangle(button_state, robot):
     if button_state:
         ev3.Sound.speak("Drawing triangle").wait()
-        turn_amount1 = 120 * 4
+        turn_amount1 = 120 * 5
         for k in range(3):
             robot.drive_inches(25, 900)
             robot.turn_degrees(turn_amount1, 900)
@@ -168,7 +168,7 @@ def draw_triangle(button_state, robot):
 def draw_square(button_state, robot):
     if button_state:
         ev3.Sound.speak("Drawing square").wait()
-        turn_amount2 = 90 * 4
+        turn_amount2 = 90 * 5
         for k in range(4):
             robot.drive_inches(25, 900)
             robot.turn_degrees(turn_amount2, 900)
@@ -177,7 +177,7 @@ def draw_square(button_state, robot):
 def draw_pentagon(button_state, robot):
     if button_state:
         ev3.Sound.speak("Drawing pentagon").wait()
-        turn_amount3 = 72 * 4
+        turn_amount3 = 72 * 5
         for k in range(5):
             robot.drive_inches(25, 900)
             robot.turn_degrees(turn_amount3, 900)
@@ -186,7 +186,7 @@ def draw_pentagon(button_state, robot):
 def draw_hexagon(button_state, robot):
     if button_state:
         ev3.Sound.speak("Drawing hexagon").wait()
-        turn_amount4 = 60 * 4
+        turn_amount4 = 60 * 5
         for k in range(6):
             robot.drive_inches(25, 900)
             robot.turn_degrees(turn_amount4, 900)
