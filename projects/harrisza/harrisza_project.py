@@ -177,7 +177,7 @@ def draw_square(button_state, robot):
 def draw_pentagon(button_state, robot):
     if button_state:
         ev3.Sound.speak("Drawing pentagon").wait()
-        turn_amount3 = 72 * 5
+        turn_amount3 = 72 * 4
         for k in range(5):
             robot.drive_inches(25, 900)
             robot.turn_degrees(turn_amount3, 900)
@@ -186,7 +186,7 @@ def draw_pentagon(button_state, robot):
 def draw_hexagon(button_state, robot):
     if button_state:
         ev3.Sound.speak("Drawing hexagon").wait()
-        turn_amount4 = 60 * 5
+        turn_amount4 = 60 * 4
         for k in range(6):
             robot.drive_inches(25, 900)
             robot.turn_degrees(turn_amount4, 900)
