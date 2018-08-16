@@ -21,7 +21,7 @@ def main():
 
     ev3.Leds.all_off()  # Turn the leds off
     robot = robo.Snatch3r()
-    dc = DataContainer()
+
 
     # DONE: 4. Add the necessary IR handler callbacks as per the instructions above.
     # Remote control channel 1 is for driving the crawler tracks around (none of these functions exist yet below).
@@ -55,6 +55,8 @@ def main():
     rc4.on_blue_up = lambda button_state: dance_3(button_state, robot)
     rc4.on_blue_down = lambda button_state: dance_4(button_state, robot)
 
+    dc = DataContainer()
+
     while dc.running:
         # DONE: 5. Process the RemoteControl objects.
         btn.process()
@@ -67,6 +69,11 @@ def main():
     print("Goodbye!")
     ev3.Sound.speak("Goodbye").wait()
 
+class DataContainer(object):
+    """ Helper class that might be useful to communicate between different callbacks."""
+
+    def __init__(self):
+        self.running = True
 
 def handle_move_left_forward(button_state, robot):
     robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
@@ -290,8 +297,6 @@ def play_wav_file():
     # Had to convert it to a PCM signed 16-bit little-endian .wav file
     # http://audio.online-convert.com/convert-to-wav
     ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav")
-
-
 
 
 main()
