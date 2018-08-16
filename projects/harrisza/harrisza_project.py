@@ -22,7 +22,6 @@ def main():
     ev3.Leds.all_off()  # Turn the leds off
     robot = robo.Snatch3r()
 
-
     # DONE: 4. Add the necessary IR handler callbacks as per the instructions above.
     # Remote control channel 1 is for driving the crawler tracks around (none of these functions exist yet below).
     # Remote control channel 2 is for moving the arm up and down (all of these functions already exist below).
@@ -69,11 +68,13 @@ def main():
     print("Goodbye!")
     ev3.Sound.speak("Goodbye").wait()
 
+
 class DataContainer(object):
     """ Helper class that might be useful to communicate between different callbacks."""
 
     def __init__(self):
         self.running = True
+
 
 def handle_move_left_forward(button_state, robot):
     robot.left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
@@ -161,7 +162,7 @@ def draw_triangle(button_state, robot):
         turn_amount = (360 / 3) + ((360 / 3) / 2.5)
         for k in range(3):
             robot.drive_inches(25, 900)
-            robot.turn_degrees(turn_amount, 900)
+            robot.turn_degrees(120, 900)
 
 
 def draw_square(button_state, robot):
@@ -170,7 +171,7 @@ def draw_square(button_state, robot):
         turn_amount = (360 / 4) + ((360 / 4) / 2.5)
         for k in range(4):
             robot.drive_inches(25, 900)
-            robot.turn_degrees(turn_amount, 900)
+            robot.turn_degrees(90, 900)
 
 
 def draw_pentagon(button_state, robot):
@@ -179,7 +180,7 @@ def draw_pentagon(button_state, robot):
         turn_amount = (360 / 5) + ((360 / 5) / 2.5)
         for k in range(5):
             robot.drive_inches(25, 900)
-            robot.turn_degrees(turn_amount, 900)
+            robot.turn_degrees(72, 900)
 
 
 def draw_hexagon(button_state, robot):
@@ -188,7 +189,7 @@ def draw_hexagon(button_state, robot):
         turn_amount = (360 / 6) + ((360 / 6) / 2.5)
         for k in range(6):
             robot.drive_inches(25, 900)
-            robot.turn_degrees(turn_amount, 900)
+            robot.turn_degrees(60, 900)
 
 
 def dance_1(button_state, robot):
