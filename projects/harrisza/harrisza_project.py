@@ -205,6 +205,7 @@ def dance_1(button_state, robot):
     else:
         robot.left_motor.stop()
         robot.right_motor.stop()
+        ev3.Sound.stop()
 
 
 def dance_2(button_state, robot):
@@ -220,6 +221,7 @@ def dance_2(button_state, robot):
     else:
         robot.left_motor.stop()
         robot.right_motor.stop()
+        ev3.Sound.stop()
 
 
 def dance_3(button_state, robot):
@@ -237,6 +239,7 @@ def dance_3(button_state, robot):
         robot.left_motor.stop()
         robot.right_motor.stop()
         robot.arm_down()
+        ev3.Sound.stop()
 
 
 def dance_4(button_state, robot):
@@ -246,7 +249,8 @@ def dance_4(button_state, robot):
             play_wav_file()
             robot.arm_up()
             robot.arm_down()
-
+    else:
+        ev3.Sound.stop()
 
 def play_song_by_individual_tones():
     """
